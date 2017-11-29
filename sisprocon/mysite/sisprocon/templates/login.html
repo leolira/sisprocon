@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+            PROCON Analytics
+            {% endblock %}
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static "procon.css" %}">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-sx-2 col-sm-2 col-md-2"></div>
+                <div class="col-lg-8 col-sx-8 col-sm-8 col-md-8"><img src="{% static "logo.png" %}" alt="My image"/ class="img-responsive"></div>
+                <div class="col-lg-2 col-sx-2 col-sm-2 col-md-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-sx-4 col-sm-4 col-md-4"></div>
+                <div class="col-lg-4 col-sx-4 col-sm-4 col-md-4">
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <h1>Dashboard Login</h1>
+                        <input type="text" name="username" placeholder="Usuário" id="user">
+                            <label>
+                            </label>
+
+                        <br>
+                        <input type="password" name="password" placeholder="Senha" id="passwd">
+                        <br>
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+                <div class="col-lg-4 col-sx-4 col-sm-4 col-md-4"></div>
+            </div>
+            <div class="row" class="formbg">
+                <img src="{% static "bglogin.png" %}" alt="My image"/ class="imagem">            
+            </div>
+        </div>
+    </body>
+</html>
